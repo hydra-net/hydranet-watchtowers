@@ -1,10 +1,19 @@
 version: "3.9"
 services:
   connext_watchtower:
-  # image: ghcr.io/hydra-net/hydranet-watchtowers/connext_watchtower:latest
-    image: connext_watchtower:latest
+    restart: always 
+    image: ghcr.io/hydra-net/hydranet-watchtowers/connext_watchtower:latest
     ports:
       - "8443:8443"
     volumes:
       - ${PWD}/config.yaml:/config.yaml
       - ${PWD}/watchtower.db:/watchtower.db
+  lnd:
+    restart: always 
+    image: lightninglabs/lnd:v0.15.5-beta
+    ports:
+      - 9911:9911
+    volumes:
+      - ${PWD}/lnd.conf:/root/.lnd/lnd.conf
+    #entrypoint: "cat /root/.lnd/lnd.conf"
+    entrypoint: "lnd -C /root/.lnd/lnd.conf"

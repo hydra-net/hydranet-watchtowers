@@ -23,3 +23,4 @@ apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docke
 
 # verify installation
 docker run hello-world
+
