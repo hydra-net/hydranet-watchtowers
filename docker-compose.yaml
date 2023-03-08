@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  connext_watchtower:
+  # image: ghcr.io/hydra-net/hydranet-watchtowers/connext_watchtower:latest
+    image: connext_watchtower:latest
+    ports:
+      - "8443:8443"
+    volumes:
+      - ${PWD}/config.yaml:/config.yaml
+      - ${PWD}/watchtower.db:/watchtower.db

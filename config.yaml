@@ -1,0 +1,24 @@
+### restart the watchtower after changing this config
+
+# private key for all chains
+private_key: xxxx
+
+# listening port for the rest api
+port: 8443
+
+# generates self signed certs
+generate_self_signed_cert: false
+
+# use your own cert / key from the following paths, generate_self_signed_cert must be false
+tls_cert_path: self-signed-tls.cert
+tls_key_path: self-signed-tls.key
+
+# rpc provider for respective chain
+chain_provider_map:
+  5: https://goerli.infura.io/v3/e70da3ee0c6e40119456c5813565595e
+  421613: https://arbitrum-goerli.infura.io/v3/e70da3ee0c6e40119456c5813565595e
+
+# allowed api keys, restart the watchtower after adding or removing api keys
+api_keys:
+  - test
+  - secret
