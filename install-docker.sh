@@ -5,7 +5,7 @@ apt-get update
 apt-get upgrade -y
 
 # install dependencies
-apt-get install  ca-certificates  curl  gnupg  lsb-release -y
+apt-get install  ca-certificates  curl  gnupg  lsb-release jq -y
 
 # add docker gpg key
 mkdir -m 0755 -p /etc/apt/keyrings

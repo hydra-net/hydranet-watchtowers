@@ -75,18 +75,42 @@ touch watchtower.db
 ```
 docker-compose -d 
 ```
-### Check the logs 
+### Lightning watchtower will now sync the chain using neutrino, you dont have to run a full bitcoin node.
+### You can see the logs of the LND Watchtower by executing:
 ```
-docker-compose logs -f
+docker-compose logs -f lnd
 ```
-### You should see the watchtower printing its config and the line "watchtower started".
+### Connext Watchtower does not have to sync anything.
+```
+docker-compose logs -f connext
+```
+
 <br>
 
+## Configure the LND watchtower
+### You have to execute a command to create a wallet for the lnd watchtower. The wallet does not need to be topped up, but it needs to be created and unlocked every time the watchtower restarts.
+### Make sure you are always in the "hydranet-watchtowers" folder when executing these commands.
+```
+bash ./setup-lnd.sh
+```
+### Enter a password for the wallet. When asked for a seed phrase, type "n" and press enter.
+
+![alt text](./images/lnd-setup.jpg)
 
 # Configure the Watchtower in the Wallet
 ### Use your Watchtowers public ip and the api key from the config to test and save the watchtower in the wallet.
 
+```
+bash ./get-lnd-info.sh
+your watchtower url is:  029b41067bec69bcf3fe9ed1504d5a26713ea9ea74379bf1e50e779d31ae90a8d7@158.101.169.109:9911
+```
+### This will print the watchtower url for use in the wallet.
+
+
+### In the wallet go to settings -> Watchtower and configure your URLs.
+
 ![alt text](./images/wallet.jpg)
+
 
 ### The Channels tab should show "Protected" after a few minutes.
 

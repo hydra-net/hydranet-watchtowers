@@ -14,6 +14,8 @@ generate_self_signed_cert: true
 #tls_key_path: self-signed-tls.key
 
 # rpc provider for respective chain
+# 5 = ethereum goerli
+# 421613 = arbitrum goerli
 chain_provider_map:
   5: https://goerli.infura.io/v3/e70da3ee0c6e40119456c5813565595e
   421613: https://arbitrum-goerli.infura.io/v3/e70da3ee0c6e40119456c5813565595e
