@@ -13,13 +13,42 @@ By the end of this tutorial, you'll have a fully functional Connext and Lightnin
 # Requirements:
 - ### Linux server (tested with ubuntu 22.04) with a public IP
 - ### Docker installation (install script provided by this repo)
-- ### SSH access, Git
+- ### SSH client
 - ### Private key for a wallet that will be used by the watchtower 
 - ### Wallet funded with Ethereum and Arbitrum Ethereum
 - ### RPC provider for Ethereum and Arbitreum (e.g. Geth, Infura)
 <br>
 
-# Optional: Use Oracle Cloud Free tier
+# Optional: Use Oracle Cloud Free tier (skip this step if you already have a server )
+### Create an Oracle Cloud account
+https://signup.cloud.oracle.com/?sourceType=_ref_coc-asset-opcSignIn&language=en_US
+### Sign in and select the region you prefer.
+![alt text](./images/region.jpg)
+### In the dropdown on the left, select "Compute" -> "Instances"
+![alt text](./images/dash.jpg)
+### Create a new instance.
+![alt text](./images/create-instance.jpg)
+### Select Ubuntu 22.04 and VM.Standard.E2.1.Micro (always free)
+![alt text](./images/image-and-shape.jpg)
+### Create a new virtual cloud network and name it watchtower-vnet
+### Also create a new subnet and enter the network address 10.0.0.0/24
+### Check the "assign public ip" box.
+![alt text](./images/network.jpg)
+### Create a new private key and download it. Make sure to save it.
+![alt text](./images/save-private-key.jpg)
+### Finish the VM setup. The VM will now be provisioned.
+### Get the public IP of your VM. The username will be ubuntu. You will need the private key from the previous step to login via SSH.
+![alt text](./images/provisioning.jpg)
+### Go to Networking -> Virtual cloud networks ->watchtower-vnet and click on the Default Security List.
+![alt text](./images/subnet.jpg)
+### Click on "Add Ingress Rules" and add two new rules. One for Connext and one for LND watchtower. Port 8443 and 9911.
+![alt text](./images/add-security-rule.jpg)
+### Make sure it looks like this when youre done.
+![alt text](./images/security-group.jpg)
+### Login to your new server by using an SSH client and the private key.
+```
+ssh -i /home/xxxxx/.ssh/ssh-key-xxxx.key ubuntu@xxx.xxx.xxx.xxx
+```
 <br>
 <br>
 
