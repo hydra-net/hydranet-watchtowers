@@ -4,9 +4,27 @@ Run your own Watchtowers for the Hydranet Wallet
 If you're using the Hydranet Multi Currency Lightwallet, you may be concerned about the security of your funds while your wallet is offline.
 One way to improve the security of your Lightning and Vector wallet is to use Connext Vector and Lightning Watchtowers, which help prevent against certain types of attacks.
 <br>
+Watchtowers permanently monitor the blockchain for channel to ensure no fraudulent activity like settling an old channel state happens.
+<br>
 In this tutorial, we'll walk you through the steps of setting up Connext and Lightning Watchtowers on Oracle Cloud Free Tier, which offers free access to virtual machine instances that are suitable for running these workloads.
 <br>
 By the end of this tutorial, you'll have a fully functional Connext and Lightning Watchtower setup that can help secure your Wallet. Please note that this tutorial assumes some technical expertise, so be prepared to invest some time and effort into the process.
+<br>
+Watchtowers can only prevent malicious channel closures, but not change the transaction or access the funds of the wallet they protect.
+
+Two kinds of Watchtowers exist:
+- Altruistic watchtowers operate without any financial incentive to do so.
+- Reward watchtowers offer protection in exchange for a reward.
+
+<br>
+<br>
+The Watchtowers that will be deployed in this tutorial are both altruistic watchtowers.
+<br>
+The Connext Vector watchtower requires the operator to fund the watchtowers wallet with Ethereum to pay for the gas fees.
+<br>
+Gas Fees only occur when the watchtower actually has to prevent an attack.
+<br>
+The Lightning LND watchtower does not need it´s own funds to operate.
 <br>
 <br>
 
@@ -14,8 +32,7 @@ By the end of this tutorial, you'll have a fully functional Connext and Lightnin
 - ### Linux server (tested with ubuntu 22.04) with a public IP
 - ### Docker installation (install script provided by this repo)
 - ### SSH client
-- ### Private key for a wallet that will be used by the watchtower 
-- ### Wallet funded with Ethereum and Arbitrum Ethereum
+- ### Watchtowers wallet needs to be funded with Ethereum and Arbitrum Ethereum
 - ### RPC provider for Ethereum and Arbitreum (e.g. Geth, Infura)
 <br>
 

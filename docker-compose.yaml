@@ -6,8 +6,10 @@ services:
     ports:
       - "8443:8443"
     volumes:
-      - ${PWD}/config.yaml:/config.yaml
-      - ${PWD}/watchtower.db:/watchtower.db
+      - /root/connext_watchtower/:/connext_watchtower
+      - ${PWD}/config.yaml:/connext_watchtower/config.yaml
+    environment:
+      - CONNEXT_CONFIG_FILE_PATH=/connext_watchtower/config.yaml
   lnd:
     restart: always 
     image: lightninglabs/lnd:v0.15.5-beta

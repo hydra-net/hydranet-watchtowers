@@ -1,21 +1,23 @@
 ### restart the watchtower after changing this config
 
+db_sqlite_path: "watchtower.db"
+
+# generates a new private key to use for the wallet of the watchtower. will be save to connext-watchtower-private.key
+generate_wallet_private_key: false
 # private key for all chains
-private_key: xxxxxx
+wallet_private_key_path: connext-watchtower-private.key
 
 # listening port for the rest api
 port: 8443
 
 # generates self signed certs
-generate_self_signed_cert: true
+generate_self_signed_cert: false
 
 # use your own cert / key from the following paths, generate_self_signed_cert must be false
-#tls_cert_path: self-signed-tls.cert
-#tls_key_path: self-signed-tls.key
+tls_cert_path: self-signed-tls.cert
+tls_key_path: self-signed-tls.key
 
 # rpc provider for respective chain
-# 5 = ethereum goerli
-# 421613 = arbitrum goerli
 chain_provider_map:
   5: https://goerli.infura.io/v3/e70da3ee0c6e40119456c5813565595e
   421613: https://arbitrum-goerli.infura.io/v3/e70da3ee0c6e40119456c5813565595e
