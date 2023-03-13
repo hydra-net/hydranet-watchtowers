@@ -111,15 +111,11 @@ api_keys:
 ### Anyone with the key can use your watchtower.
 <br>
 
-### Create an empty file for the watchtower sqlite database
-```
-touch watchtower.db
-```
 
 ## Run the watchtower
 ### Run the command docker-compose
 ```
-docker-compose -d 
+docker-compose up -d 
 ```
 ### Lightning watchtower will now sync the chain using neutrino, you dont have to run a full bitcoin node.
 ### You can see the logs of the LND Watchtower by executing:
@@ -128,9 +124,13 @@ docker-compose logs -f lnd
 ```
 ### Connext Watchtower does not have to sync anything.
 ```
-docker-compose logs -f connext
+docker-compose logs -f connext_watchtower
 ```
-
+### For Connext you have to top up the watchtowers wallet. To get the public address of the watchtower, run:
+```
+bash ./get-connext-address.sh
+```
+### This will also print the URL for use in the MCLW.
 <br>
 
 ## Configure the LND watchtower
@@ -151,6 +151,11 @@ bash ./get-lnd-info.sh
 your watchtower url is:  029b41067bec69bcf3fe9ed1504d5a26713ea9ea74379bf1e50e779d31ae90a8d7@158.101.169.109:9911
 ```
 ### This will print the watchtower url for use in the wallet.
+
+### The LND needs to be unlocked after a restart:
+```
+bash ./unlock-lnd.sh
+```
 
 
 ### In the wallet go to settings -> Watchtower and configure your URLs.
