@@ -9,7 +9,7 @@ services:
       - /root/connext_watchtower/:/connext_watchtower
       - ${PWD}/config.yaml:/connext_watchtower/config.yaml
     environment:
-      - CONNEXT_CONFIG_FILE_PATH=/connext_watchtower/config.yaml
+      - CONNEXT_WATCHTOWER_CONFIG_PATH=/connext_watchtower/config.yaml
     working_dir: /connext_watchtower
   lnd:
     restart: always 
