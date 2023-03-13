@@ -3,7 +3,7 @@
 db_sqlite_path: "watchtower.db"
 
 # generates a new private key to use for the wallet of the watchtower. will be save to connext-watchtower-private.key
-generate_wallet_private_key: false
+generate_wallet_private_key: true
 # private key for all chains
 wallet_private_key_path: connext-watchtower-private.key
 
@@ -11,7 +11,7 @@ wallet_private_key_path: connext-watchtower-private.key
 port: 8443
 
 # generates self signed certs
-generate_self_signed_cert: false
+generate_self_signed_cert: true
 
 # use your own cert / key from the following paths, generate_self_signed_cert must be false
 tls_cert_path: self-signed-tls.cert

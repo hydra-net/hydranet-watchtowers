@@ -10,6 +10,7 @@ services:
       - ${PWD}/config.yaml:/connext_watchtower/config.yaml
     environment:
       - CONNEXT_CONFIG_FILE_PATH=/connext_watchtower/config.yaml
+    working_dir: /connext_watchtower
   lnd:
     restart: always 
     image: lightninglabs/lnd:v0.15.5-beta
@@ -17,5 +18,5 @@ services:
       - 9911:9911
     volumes:
       - ${PWD}/lnd.conf:/root/.lnd/lnd.conf
-    #entrypoint: "cat /root/.lnd/lnd.conf"
+      - /root/lnd_watchtower/:/root/.lnd
     entrypoint: "lnd -C /root/.lnd/lnd.conf"
